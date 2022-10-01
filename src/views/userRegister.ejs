@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <title>Document</title>
 </head>
+
 <body>
+    <main>
+        <section class="container">
+            <h1>Registrate</h1>
+
+            <form action="" method="POST">
+                <div class="row g-3 align-items-center">
+
+                    <div class="col-auto">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="first_name" value="<%= locals.old && old.first_name ? old.first_name : null %>">                    
+                        <p>
+                            <%= locals.errors && errors.first_name ? errors.first_name.msg : null%>
+                        </p>
+                    </div>
+                    
+                    <div class="form-label">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" name="last_name"
+                            value="<%= locals.old && old.last_name ? old.last_name : null %>">
+                        <p>
+                            <%= locals.errors && errors.last_name ? errors.last_name.msg : null%>
+                        </p>
+                    </div>
     
+                    <div class="mb-3">
+                        <label for="email">Correo electrónico</label>
+                        <input  type="email" name="email"
+                            value="<%= locals.old && old.email ? old.email : null %>">
+                        <p class="bs-danger">
+                            <%= locals.errors && errors.email ? errors.email.msg : null%>
+                        </p>
+                    </div>
+    
+                    <div>
+                        <label for="password">Contraseña</label>
+                        <input  type="password" name="password">
+                        <p>
+                            <%= locals.errors && errors.password ? errors.password.msg : null%>
+                        </p>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-outline-secondary">Enviar</button>
+
+            </form>
+
+        </section>
+    </main>
 </body>
+
 </html>

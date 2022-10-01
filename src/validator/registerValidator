@@ -1,0 +1,30 @@
+const { check } = require("express-validator");
+
+module.exports = [
+  check("first_name")
+    .notEmpty()
+    .withMessage("El nombre es obligatorio")
+    .isLength({min : 5})
+    .withMessage('El nombre debe tener al menos 5 caracteres')
+    .bail(),
+
+  check("last_name")
+    .notEmpty()
+    .withMessage("El apellido es obligatorio")
+    .isLength({min : 5})
+    .withMessage ( 'El apellido debe tener al menos 5 caracteres')
+    .bail(),
+
+  check("email")
+    .notEmpty()
+    .withMessage("El email es obligatorio").bail()
+    .isEmail()
+    .withMessage("De ser un email válido"),
+
+  check("password")
+    .notEmpty()
+    .withMessage("La contraseña es obligatoria")
+    .isLength({min : 5})
+    .withMessage ( 'El contraseña debe tener al menos 5 caracteres')
+    .bail(),
+];
